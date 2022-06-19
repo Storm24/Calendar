@@ -1,0 +1,53 @@
+<form
+  #calendarForm="ngForm"
+  (ngSubmit)="AddCalendarDaysSubmit(calendarForm.value)"
+>
+  <div>
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" name="startDate" ngModel />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Number of Days</mat-label>
+    <input
+      type="number"
+      name="daysAdded"
+      matInput
+      placeholder="ex. 14"
+      ngModel
+    />
+  </mat-form-field>
+  <div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+</form>
+<div>
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="range">
+      <input
+        id="start"
+        matStartDate
+        placeholder="Start date"
+        [(ngModel)]="startRDate"
+      />
+      <input
+        id="end"
+        matEndDate
+        placeholder="End date"
+        [(ngModel)]="endRDate"
+      />
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="range"></mat-datepicker-toggle>
+    <mat-date-range-picker #range></mat-date-range-picker>
+  </mat-form-field>
+</div>
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
