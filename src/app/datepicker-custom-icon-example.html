@@ -18,15 +18,18 @@
       name="daysAdded"
       matInput
       placeholder="ex. 14"
+      min="1"
       ngModel
     />
   </mat-form-field>
   <div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" [disabled]="clicked" class="btn btn-success">
+      Submit
+    </button>
   </div>
 </form>
 <div>
-  <mat-form-field color="accent" appearance="fill">
+  <mat-form-field class="example-full-width" color="accent" appearance="fill">
     <mat-label>Enter a date range</mat-label>
     <mat-date-range-input [rangePicker]="range">
       <input
@@ -34,18 +37,25 @@
         matStartDate
         placeholder="Start date"
         [(ngModel)]="startRDate"
+        [min]="startRDate"
       />
       <input
         id="end"
         matEndDate
         placeholder="End date"
         [(ngModel)]="endRDate"
+        [max]="endRDate"
       />
     </mat-date-range-input>
     <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="range"></mat-datepicker-toggle>
-    <mat-date-range-picker #range></mat-date-range-picker>
+    <mat-date-range-picker [dateClass]="dateClass" #range></mat-date-range-picker>
   </mat-form-field>
+</div>
+<div>
+  <button type="submit" class="btn btn-success" (click)="clicked = false;">
+    reset
+  </button>
 </div>
 
 <!-- Copyright 2022 Google LLC. All Rights Reserved.

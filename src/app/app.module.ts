@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialExampleModule,
     ReactiveFormsModule,
   ],
-  providers: [DatePipe],
+  providers: [],
   bootstrap: [DatepickerCustomIconExample],
 })
 export class AppModule {}
